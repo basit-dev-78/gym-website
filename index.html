@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="description" content="Transform your body and mind with Trainer, your personal fitness coach. Discover custom workout plans, nutritional guidance, online coaching, and group training."/>
+<title>Trainer - Personal Fitness Coach</title>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'fitness-dark': '#0a1d1a', // Deep dark green from the header/bg
+            'fitness-accent': '#c1f13a', // Neon lime accent color
+            'fitness-bg-card': '#f5f5f0', // Off-white/cream background for cards
+            'fitness-hero-bg': '#122c26', // Dark green for hero section
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    body {
+      background-color: #ffffff; /* Page background set to white as seen in main content area of image 1 */
+      margin: 0;
+      padding: 0;
+    }
+    .full-width-container {
+      width: 100%;
+    }
+    /* Custom styling for the rounded arrow icons in buttons */
+    .btn-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #0a1d1a;
+      color: white;
+      border-radius: 50%;
+      margin-left: 8px;
+    }
+    .hero-btn-arrow {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+<body class="antialiased">
+<!-- BEGIN: MainContainer -->
+<main class="full-width-container">
+<!-- BEGIN: MainHeader -->
+<header class="flex items-center justify-between px-4 md:px-10 py-6 max-w-[1440px] mx-auto" data-purpose="site-header">
+<!-- Logo -->
+<div class="flex items-center gap-2 font-bold text-xl text-fitness-dark">
+<div class="w-6 h-6 bg-fitness-dark rounded flex items-center justify-center">
+<span class="text-white text-xs">🏋️</span>
+</div>
+<span class="">Trainer</span>
+</div>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+<a id="nav-home" class="border-b-2 border-fitness-accent" href="#">Home</a>
+<a id="nav-about" class="hover:text-fitness-dark" href="#">About</a>
+<a id="nav-pages" class="flex items-center gap-1 hover:text-fitness-dark" href="#">
+        Pages 
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a id="nav-class" class="hover:text-fitness-dark" href="#">Class</a>
+</nav>
+<!-- CTA / Mobile Trigger -->
+<div class="flex items-center gap-4">
+<a id="header-cta" class="hidden sm:flex items-center border border-gray-300 rounded-full py-2 px-5 text-sm font-semibold text-fitness-dark hover:bg-gray-50 transition-colors" href="#">
+      Get started
+      <span class="btn-arrow text-[10px]">↗</span>
+</a>
+<!-- Hamburger Mobile Menu Button -->
+<button id="mobile-menu-btn" class="md:hidden p-2 text-fitness-dark hover:text-fitness-accent focus:outline-none" aria-label="Toggle Navigation Menu">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu-drawer" class="fixed inset-0 bg-fitness-dark/50 z-50 transition-opacity duration-300 opacity-0 pointer-events-none" aria-hidden="true">
+<div class="fixed top-0 right-0 w-72 h-full bg-white shadow-2xl p-6 transition-transform duration-300 transform translate-x-full flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-2 font-bold text-xl text-fitness-dark">
+<div class="w-6 h-6 bg-fitness-dark rounded flex items-center justify-center">
+<span class="text-white text-xs">🏋️</span>
+</div>
+<span>Trainer</span>
+</div>
+<button id="mobile-menu-close" class="p-2 text-gray-500 hover:text-fitness-dark focus:outline-none" aria-label="Close Menu">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<nav class="flex flex-col gap-6 text-lg font-medium text-gray-700">
+<a id="mobile-nav-home" class="text-fitness-dark border-l-4 border-fitness-accent pl-3 font-semibold" href="#">Home</a>
+<a id="mobile-nav-about" class="hover:text-fitness-dark hover:pl-2 transition-all" href="#">About</a>
+<a id="mobile-nav-pages" class="hover:text-fitness-dark hover:pl-2 transition-all" href="#">Pages</a>
+<a id="mobile-nav-class" class="hover:text-fitness-dark hover:pl-2 transition-all" href="#">Class</a>
+</nav>
+</div>
+<div class="pt-6 border-t border-gray-100">
+<a id="mobile-cta" class="flex items-center justify-center border border-gray-300 rounded-full py-3 px-5 text-sm font-semibold text-fitness-dark hover:bg-gray-50 transition-colors w-full" href="#">
+      Get started
+      <span class="btn-arrow text-[10px]">↗</span>
+</a>
+</div>
+</div>
+</div>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<div class="px-0 md:px-10">
+<section class="bg-fitness-hero-bg text-white relative overflow-hidden flex flex-col md:flex-row items-center rounded-none md:rounded-[2.5rem] max-w-[1440px] mx-auto" data-purpose="hero-banner">
+<div class="flex-1 px-6 py-12 sm:px-12 md:p-20 z-10">
+<p class="text-xl mb-4 font-medium">Hi, I'm Mike</p>
+<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+          Your <span class="text-fitness-accent italic">fitness</span> trainer
+        </h1>
+<p class="text-gray-300 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
+          Transform your body and mind with personalized workout plans tailored to your goals. Reach new heights in your fitness journey with tailored training programs.
+        </p>
+<a id="hero-book-btn" class="inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-opacity" href="#">
+          Book a class
+          <span class="btn-arrow hero-btn-arrow text-[10px]">↗</span>
+</a>
+</div>
+<!-- Trainer Hero Image -->
+<div class="flex-1 flex justify-center md:justify-end items-end h-full pt-10 md:pt-0 w-full overflow-hidden">
+<img alt="Mike the Fitness Trainer" class="object-cover h-[350px] sm:h-[450px] md:h-[500px] w-full max-w-full md:w-auto brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwR9vNMV1nPkSXtt8RlAASP3NJLpJ8eC_RHeE0wO8Fnz9Hml-plUzdvJi08_xiwBWpOz6YNmW4pRrBZaljJyrSmz1nAC_TFzMciCNVb8tGJ9tAgo7tHY0EGp1q2H2dM6dvzaoI7mUmA4FTnqug-pS21o8XOlbZ4TWLiT13FVIhy0A8PfgnFp1au6xqA9l90RUpTHe1YPYcZYuNccgnjqxolGZAwTd_SgNRRuXu_H8tzuF0RtWhFvGbbcSjGPabSeBW3vPYBLTDj2Lf"/>
+</div>
+<!-- Faded Background Text Decor -->
+<div class="absolute bottom-0 left-4 md:left-10 text-[5rem] sm:text-[8rem] md:text-[10rem] font-black text-white/5 pointer-events-none select-none uppercase tracking-tighter">
+        GET STR
+      </div>
+</section>
+</div>
+<!-- END: HeroSection -->
+<!-- BEGIN: VideosSection -->
+<section class="px-4 sm:px-6 md:px-10 py-16 md:py-24 max-w-[1440px] mx-auto" data-purpose="videos-section">
+<div class="mb-12">
+<span class="text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-3">Tutorials & Guides</span>
+<h2 class="text-3xl md:text-4xl font-bold text-fitness-dark leading-tight">
+        Master Your Gym Software
+      </h2>
+<p class="text-gray-600 mt-2 max-w-xl text-sm sm:text-base">
+        Watch our step-by-step video tutorials to learn how to seamlessly manage members, track payments, control expenses, and grow your gym business.
+      </p>
+</div>
+
+<!-- Videos Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Card 1: Complete Overview -->
+  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('Complete overview', 'https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-in-gym-41712-large.mp4')" id="video-card-overview">
+    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">OVERVIEW</span>
+      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">4:15</span>
+    </div>
+    <h3 class="font-bold text-lg mb-2">Complete overview</h3>
+    <p class="text-xs text-gray-600 leading-relaxed">A comprehensive walkthrough of the entire gym management software dashboard and core features.</p>
+  </div>
+
+  <!-- Card 2: How to add members -->
+  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to add members', 'https://assets.mixkit.co/videos/preview/mixkit-gym-member-training-with-dumbbells-41708-large.mp4')" id="video-card-add-members">
+    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">MEMBERS</span>
+      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:30</span>
+    </div>
+    <h3 class="font-bold text-lg mb-2">How to add members</h3>
+    <p class="text-xs text-gray-600 leading-relaxed">Learn how to easily register new gym members, assign plans, and setup their profiles.</p>
+  </div>
+
+  <!-- Card 3: How we can manage members payments in this -->
+  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How we can manage members payments in this', 'https://assets.mixkit.co/videos/preview/mixkit-payment-terminal-close-up-41584-large.mp4')" id="video-card-payments">
+    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">PAYMENTS</span>
+      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">3:45</span>
+    </div>
+    <h3 class="font-bold text-lg mb-2">How we can manage members payments in this</h3>
+    <p class="text-xs text-gray-600 leading-relaxed">A detailed guide on tracking subscription renewals, pending dues, and invoices.</p>
+  </div>
+
+  <!-- Card 4: How to manage expense in this software -->
+  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to manage expense in this software', 'https://assets.mixkit.co/videos/preview/mixkit-writing-expenses-on-a-notebook-41578-large.mp4')" id="video-card-expenses">
+    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">EXPENSES</span>
+      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:15</span>
+    </div>
+    <h3 class="font-bold text-lg mb-2">How to manage expense in this software</h3>
+    <p class="text-xs text-gray-600 leading-relaxed">Learn how to input daily overhead expenses, rent, salaries, and review monthly reports.</p>
+  </div>
+
+  <!-- Card 5: What problem solving this software for gym owners -->
+  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('What problem solving this software for gym owners', 'https://assets.mixkit.co/videos/preview/mixkit-coach-discussing-plan-with-athlete-41710-large.mp4')" id="video-card-problem-solving">
+    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">SOLUTION</span>
+      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">5:00</span>
+    </div>
+    <h3 class="font-bold text-lg mb-2">What problem solving this software for gym owners</h3>
+    <p class="text-xs text-gray-600 leading-relaxed">See how our software solves common issues like client churn, leakages, and manual bookkeeping.</p>
+  </div>
+</div>
+</section>
+<!-- END: VideosSection -->
+<!-- BEGIN: AboutSection -->
+<section class="px-4 sm:px-6 md:px-10 pb-16 md:pb-20 flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-[1440px] mx-auto" data-purpose="about-me">
+<!-- About Image -->
+<div class="flex-1 w-full">
+<div class="rounded-[2rem] overflow-hidden">
+<img alt="Trainer assisting client in gym" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrVVJn6v9n5DEieFG0tyWZPdECCqPsr1bjdGGN5DJ154zM9jCvpt4bwZrkkalNjRTIzqTZQVmullQB8B5L5fLAlnQH2kl77P0Mhdc5VReSvlu9-gPYrui611TR4IRxU-bdMx_08u8ydpenvVCsJw-YDYB0ibXYmqGV0hUliLpVomZRDrtNov26B2F4UcOAluw5r0Ft8ug67BHvERxT7gU22Eq9hht5eV_uNvMhwRnGh1O8yMk1j36vr8HexGgpJL6BdVPfFR6HvKJ"/>
+</div>
+</div>
+<!-- About Text -->
+<div class="flex-1 w-full">
+<span class="text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-4">Who I Am</span>
+<h2 class="text-3xl md:text-4xl font-bold text-fitness-dark mb-6 leading-tight">Experienced personal trainer</h2>
+<p class="text-gray-600 mb-8 leading-relaxed text-sm sm:text-base">
+        My approach combines science-backed training techniques with personalized workout plans designed specifically for your goals—building muscle, losing weight, or improving overall health.
+      </p>
+<a id="about-know-me-btn" class="inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-opacity mb-10" href="#">
+        Get to know me
+        <span class="btn-arrow text-[10px]">↗</span>
+</a>
+<!-- Certifications -->
+<div>
+<h4 class="font-bold text-fitness-dark mb-4">Certifications</h4>
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-gray-700">
+<div class="w-4 h-4 bg-fitness-dark rounded-full flex items-center justify-center">
+<svg class="h-2.5 w-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+            Certified personal trainer
+          </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+</main>
+<!-- END: MainContainer -->
+
+<!-- Video Lightbox Modal -->
+<div id="video-modal" class="fixed inset-0 bg-black/90 z-50 transition-opacity duration-300 opacity-0 pointer-events-none flex items-center justify-center p-4 sm:p-6" aria-hidden="true">
+  <!-- Close Button -->
+  <button id="video-modal-close" class="absolute top-4 right-4 text-white hover:text-fitness-accent focus:outline-none p-2 z-50 transition-colors" aria-label="Close Video Player">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  
+  <!-- Modal Content Container -->
+  <div class="w-full max-w-4xl bg-fitness-dark rounded-2xl overflow-hidden shadow-2xl transition-transform duration-300 scale-95 flex flex-col">
+    <!-- Video Player Header -->
+    <div class="px-6 py-4 bg-fitness-hero-bg border-b border-white/5 flex items-center justify-between">
+      <h4 id="video-modal-title" class="font-bold text-white text-lg truncate">Video Tutorial</h4>
+      <span class="bg-fitness-accent text-fitness-dark text-xs font-bold px-3 py-1 rounded-full flex-shrink-0">HD 1080p</span>
+    </div>
+    
+    <!-- Aspect Video Container -->
+    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+      <video id="video-modal-player" class="w-full h-full object-contain" controls preload="metadata" playsinline>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile Navigation Drawer Toggle Logic
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+  const drawerContent = mobileMenuDrawer ? mobileMenuDrawer.querySelector('.translate-x-full, .translate-x-0') : null;
+
+  if (mobileMenuBtn && mobileMenuClose && mobileMenuDrawer) {
+    function toggleDrawer(open) {
+      if (open) {
+        mobileMenuDrawer.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenuDrawer.classList.add('opacity-100');
+        mobileMenuDrawer.setAttribute('aria-hidden', 'false');
+        if (drawerContent) {
+          drawerContent.classList.remove('translate-x-full');
+          drawerContent.classList.add('translate-x-0');
+        }
+        document.body.style.overflow = 'hidden'; // Disable background scrolling
+      } else {
+        mobileMenuDrawer.classList.add('opacity-0', 'pointer-events-none');
+        mobileMenuDrawer.classList.remove('opacity-100');
+        mobileMenuDrawer.setAttribute('aria-hidden', 'true');
+        if (drawerContent) {
+          drawerContent.classList.remove('translate-x-0');
+          drawerContent.classList.add('translate-x-full');
+        }
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', () => toggleDrawer(true));
+    mobileMenuClose.addEventListener('click', () => toggleDrawer(false));
+    
+    // Close on overlay click
+    mobileMenuDrawer.addEventListener('click', (e) => {
+      if (e.target === mobileMenuDrawer) {
+        toggleDrawer(false);
+      }
+    });
+
+    // Close on esc key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenuDrawer.classList.contains('opacity-0')) {
+        toggleDrawer(false);
+      }
+    });
+  }
+
+  // Video Modal Player Logic
+  const videoModal = document.getElementById('video-modal');
+  const videoModalClose = document.getElementById('video-modal-close');
+  const videoModalPlayer = document.getElementById('video-modal-player');
+  const videoModalTitle = document.getElementById('video-modal-title');
+  const modalContainer = videoModal ? videoModal.querySelector('.transition-transform') : null;
+
+  function playVideo(title, url) {
+    if (videoModal && videoModalPlayer && videoModalTitle && modalContainer) {
+      videoModalTitle.textContent = title;
+      videoModalPlayer.src = url;
+      videoModalPlayer.load();
+
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      videoModal.classList.add('opacity-100');
+      videoModal.setAttribute('aria-hidden', 'false');
+      modalContainer.classList.remove('scale-95');
+      modalContainer.classList.add('scale-100');
+
+      videoModalPlayer.play().catch(err => console.log("Autoplay blocked:", err));
+      document.body.style.overflow = 'hidden'; // Disable background scrolling
+    }
+  }
+
+  function closeVideo() {
+    if (videoModal && videoModalPlayer && modalContainer) {
+      videoModalPlayer.pause();
+      videoModalPlayer.src = '';
+      
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      videoModal.classList.remove('opacity-100');
+      videoModal.setAttribute('aria-hidden', 'true');
+      modalContainer.classList.remove('scale-100');
+      modalContainer.classList.add('scale-95');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  }
+
+  if (videoModalClose) {
+    videoModalClose.addEventListener('click', closeVideo);
+  }
+  
+  if (videoModal) {
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideo();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal && !videoModal.classList.contains('opacity-0')) {
+      closeVideo();
+    }
+  });
+</script>
+</body></html>
