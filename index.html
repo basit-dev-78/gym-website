@@ -550,8 +550,117 @@
     }
 
     /* ── Testimonial hover glow ── */
+    .testimonial-feature {
+      background: linear-gradient(135deg, rgba(193, 241, 58, 0.16), rgba(255, 255, 255, 0.06));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
     .testimonial-card:hover {
-      box-shadow: 0 8px 32px rgba(193, 241, 58, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(193, 241, 58, 0.1);
+    }
+
+    .testimonial-avatar {
+      background: linear-gradient(135deg, #c1f13a, #8fe300);
+      color: #0a1d1a;
+    }
+
+    body {
+      background: linear-gradient(180deg, #fcfcf8 0%, #f4f6eb 100%);
+      color: #0a1d1a;
+    }
+
+    main {
+      position: relative;
+    }
+
+    .fit-hero-shell {
+      background: linear-gradient(135deg, #102923 0%, #163b31 45%, #0a1d1a 100%);
+      box-shadow: 0 24px 70px rgba(5, 20, 14, 0.18);
+    }
+
+    .fit-section-title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.35rem;
+    }
+
+    .fit-section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, #c1f13a, transparent);
+      border-radius: 999px;
+    }
+
+    .bg-fitness-bg-card {
+      background: linear-gradient(145deg, #fcfcfa 0%, #f2f3e8 100%);
+      border: 1px solid rgba(10, 29, 26, 0.06);
+      box-shadow: 0 12px 35px rgba(10, 29, 26, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .bg-fitness-bg-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(10, 29, 26, 0.12);
+      border-color: rgba(193, 241, 58, 0.35);
+    }
+
+    .fit-pill {
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .fit-glow {
+      position: absolute;
+      inset: auto auto -18px -18px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(193, 241, 58, 0.26) 0%, rgba(193, 241, 58, 0) 72%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .fit-image-frame {
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+    }
+
+    .fit-cta-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(193, 241, 58, 0.16);
+    }
+
+    #site-header {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      transition: all 0.3s ease;
+    }
+
+    #site-header.scrolled {
+      top: 0.75rem;
+      border-color: rgba(10, 29, 26, 0.12);
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 35px rgba(10, 29, 26, 0.10);
+      backdrop-filter: blur(16px);
     }
   </style>
 </head>
@@ -560,7 +669,7 @@
   <!-- BEGIN: MainContainer -->
   <main class="full-width-container">
     <!-- BEGIN: MainHeader -->
-    <header class="flex items-center justify-between px-4 md:px-10 py-6 max-w-[1440px] mx-auto"
+    <header id="site-header" class="sticky top-0 z-40 flex items-center justify-between px-4 md:px-10 py-4 max-w-[1440px] mx-auto"
       data-purpose="site-header">
       <!-- Logo -->
       <div class="flex items-center gap-2 font-bold text-xl text-fitness-dark">
@@ -582,12 +691,16 @@
         <a id="nav-class" class="hover:text-fitness-dark" href="#">Class</a>
       </nav>
       <!-- CTA / Mobile Trigger -->
-      <div class="flex items-center gap-4">
-        <a id="header-cta"
-          class="hidden sm:flex items-center border border-gray-300 rounded-full py-2 px-5 text-sm font-semibold text-fitness-dark hover:bg-gray-50 transition-colors"
+      <div class="flex items-center gap-3">
+        <a id="header-login"
+          class="hidden sm:inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold text-fitness-dark hover:bg-gray-50 transition-colors"
           href="#">
-          Get started
-          <span class="btn-arrow text-[10px]">↗</span>
+          Login
+        </a>
+        <a id="header-signup"
+          class="hidden sm:inline-flex items-center rounded-full bg-fitness-dark px-4 py-2 text-sm font-semibold text-white hover:bg-fitness-hero-bg transition-colors"
+          href="#">
+          Sign Up
         </a>
         <!-- Hamburger Mobile Menu Button -->
         <button id="mobile-menu-btn"
@@ -644,9 +757,14 @@
     <!-- BEGIN: HeroSection -->
     <div class="px-0 md:px-10">
       <section
-        class="bg-fitness-hero-bg text-white relative overflow-hidden flex flex-col md:flex-row items-center rounded-none md:rounded-[2.5rem] max-w-[1440px] mx-auto"
+        class="fit-hero-shell text-white relative overflow-hidden flex flex-col md:flex-row items-center rounded-none md:rounded-[2.5rem] max-w-[1440px] mx-auto"
         data-purpose="hero-banner">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(193,241,58,0.16),_transparent_45%)]"></div>
         <div class="flex-1 px-6 py-12 sm:px-12 md:p-20 z-10">
+          <div class="inline-flex items-center gap-2 rounded-full fit-pill px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-fitness-accent mb-5">
+            <span class="h-2 w-2 rounded-full bg-fitness-accent"></span>
+            Trusted by 500+ Gym Owners
+          </div>
           <p class="text-xl mb-4 font-medium text-fitness-accent uppercase tracking-wider">All-in-One Solution</p>
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             Streamline Your <span class="text-fitness-accent italic">Gym</span> Business
@@ -655,31 +773,60 @@
             Simplify member registration, automate fee collections, track overhead expenses, and monitor daily
             attendance with Pakistan's most reliable and user-friendly gym management platform.
           </p>
-          <a id="hero-book-btn"
-            class="inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-opacity"
-            href="#video-slider-section">
-            start a free trial
-            <span class="btn-arrow hero-btn-arrow text-[10px]">↗</span>
-          </a>
-        </div>
-        <!-- Software Hero Image Mockup -->
-        <div class="flex-1 flex justify-center md:justify-end items-center p-6 md:p-12 w-full z-10">
-          <div
-            class="relative w-full max-w-lg md:max-w-xl bg-white/5 border border-white/10 rounded-2xl p-2 shadow-2xl backdrop-blur-sm overflow-hidden">
-            <div class="flex items-center gap-1.5 px-3 py-2 bg-fitness-dark/80 rounded-t-xl border-b border-white/5">
-              <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-              <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-              <div class="ml-4 text-[10px] text-gray-400 font-mono select-none truncate">dashboard.gymsoftware.pk</div>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a id="hero-book-btn"
+              class="fit-cta-hover inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300"
+              href="#video-slider-section">
+              Start a Free Trial
+              <span class="btn-arrow hero-btn-arrow text-[10px]">↗</span>
+            </a>
+            <a href="#pricing-section"
+              class="fit-cta-hover inline-flex items-center border border-white/20 bg-white/10 text-white font-semibold py-3 px-6 rounded-full hover:bg-white/20 transition-all duration-300">
+              View Plans
+            </a>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md text-sm text-white/80">
+            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
+              <div class="font-bold text-white">Offline Ready</div>
+              <div class="text-xs text-white/60 mt-1">Works without internet</div>
             </div>
-            <div class="overflow-hidden rounded-b-xl aspect-[16/10]">
-              <img alt="Gym Management Software Dashboard"
-                class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                src="assets/dashboard.jpeg" />
+            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
+              <div class="font-bold text-white">Auto Reports</div>
+              <div class="text-xs text-white/60 mt-1">Instant analytics</div>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
+              <div class="font-bold text-white">24/7 Support</div>
+              <div class="text-xs text-white/60 mt-1">Fast assistance</div>
             </div>
           </div>
         </div>
-        <!-- Faded Background Text Decor -->
+        <div class="flex-1 flex justify-center md:justify-end items-center p-6 md:p-12 w-full z-10">
+          <div class="relative w-full max-w-lg md:max-w-xl">
+            <div class="fit-glow"></div>
+            <div class="relative rounded-[2rem] border border-white/15 bg-white/10 p-2 shadow-[0_30px_90px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+              <div class="flex items-center gap-1.5 px-3 py-2 bg-fitness-dark/80 rounded-t-[1.3rem] border-b border-white/5">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                <div class="ml-4 text-[10px] text-gray-400 font-mono select-none truncate">dashboard.gymsoftware.pk</div>
+              </div>
+              <div class="overflow-hidden rounded-b-[1.3rem] aspect-[16/10] relative">
+                <img alt="Gym Management Software Dashboard"
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                  src="assets/dashboard.jpeg" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+              </div>
+            </div>
+            <div class="absolute -bottom-5 -left-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-lg shadow-lg">
+              <div class="text-[10px] uppercase tracking-[0.3em] text-white/60">Live Growth</div>
+              <div class="text-sm font-semibold text-white">+18% Monthly</div>
+            </div>
+            <div class="absolute -top-5 -right-4 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-lg shadow-lg">
+              <div class="text-[10px] uppercase tracking-[0.3em] text-white/60">Support</div>
+              <div class="text-sm font-semibold text-white">Fast & Friendly</div>
+            </div>
+          </div>
+        </div>
         <div
           class="absolute bottom-0 left-4 md:left-10 text-[5rem] sm:text-[8rem] md:text-[10rem] font-black text-white/5 pointer-events-none select-none uppercase tracking-tighter">
           GYM APP
@@ -1338,16 +1485,18 @@
     <section
       class="px-4 sm:px-6 md:px-10 pb-16 md:pb-20 flex flex-col md:flex-row items-center gap-8 md:gap-16 max-w-[1440px] mx-auto"
       data-purpose="about-me">
-      <!-- About Image -->
       <div class="flex-1 w-full">
-        <div class="rounded-[2rem] overflow-hidden">
-          <img alt="Trainer assisting client in gym" class="w-full h-auto object-cover"
+        <div class="relative rounded-[2rem] overflow-hidden fit-image-frame p-2">
+          <img alt="Trainer assisting client in gym" class="w-full h-auto object-cover rounded-[1.5rem]"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCrVVJn6v9n5DEieFG0tyWZPdECCqPsr1bjdGGN5DJ154zM9jCvpt4bwZrkkalNjRTIzqTZQVmullQB8B5L5fLAlnQH2kl77P0Mhdc5VReSvlu9-gPYrui611TR4IRxU-bdMx_08u8ydpenvVCsJw-YDYB0ibXYmqGV0hUliLpVomZRDrtNov26B2F4UcOAluw5r0Ft8ug67BHvERxT7gU22Eq9hht5eV_uNvMhwRnGh1O8yMk1j36vr8HexGgpJL6BdVPfFR6HvKJ" />
+          <div class="absolute left-5 bottom-5 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-lg shadow-lg">
+            <div class="text-[10px] uppercase tracking-[0.3em] text-white/70">Coach Experience</div>
+            <div class="text-sm font-semibold text-white">10+ Years</div>
+          </div>
         </div>
       </div>
-      <!-- About Text -->
       <div class="flex-1 w-full">
-        <span class="text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-4">Who I Am</span>
+        <span class="fit-section-title text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-4">Who I Am</span>
         <h2 class="text-3xl md:text-4xl font-bold text-fitness-dark mb-6 leading-tight">Experienced personal trainer
         </h2>
         <p class="text-gray-600 mb-8 leading-relaxed text-sm sm:text-base">
@@ -1355,13 +1504,22 @@
           for your goals—building muscle, losing weight, or improving overall health.
         </p>
         <a id="about-know-me-btn"
-          class="inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-opacity mb-10"
+          class="fit-cta-hover inline-flex items-center bg-fitness-accent text-fitness-dark font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 mb-8"
           href="#">
           Get to know me
           <span class="btn-arrow text-[10px]">↗</span>
         </a>
-        <!-- Certifications -->
-        <div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm">
+            <div class="text-sm font-semibold text-fitness-dark">Personalized Programs</div>
+            <div class="text-xs text-gray-500 mt-1">Tailored to your goals, schedule, and fitness level.</div>
+          </div>
+          <div class="rounded-2xl border border-gray-200 bg-white/70 p-4 shadow-sm">
+            <div class="text-sm font-semibold text-fitness-dark">Progress Focused</div>
+            <div class="text-xs text-gray-500 mt-1">Consistent coaching and measurable improvement.</div>
+          </div>
+        </div>
+        <div class="mt-8">
           <h4 class="font-bold text-fitness-dark mb-4">Certifications</h4>
           <ul class="space-y-3">
             <li class="flex items-center gap-2 text-sm text-gray-700">
@@ -1514,135 +1672,109 @@
     <!-- ============================================================ -->
     <section id="testimonials-section" class="py-16 md:py-24 bg-fitness-dark overflow-hidden"
       data-purpose="testimonials">
-      <div class="px-4 sm:px-6 md:px-10 max-w-[1440px] mx-auto mb-14 text-center">
-        <span class="text-sm font-bold text-fitness-accent uppercase tracking-widest block mb-3">Happy Gym Owners</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">What My Clients Say</h2>
-        <p class="text-white/50 mt-3 max-w-lg mx-auto text-sm">Real feedback from gym owners across Pakistan who use
-          HisabWala every day.</p>
+      <div class="px-4 sm:px-6 md:px-10 max-w-[1440px] mx-auto">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+          <div class="max-w-2xl text-center lg:text-left">
+            <span class="text-sm font-bold text-fitness-accent uppercase tracking-widest block mb-3">Happy Gym Owners</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight">What My Clients Say</h2>
+            <p class="text-white/60 mt-3 text-sm md:text-base">Real feedback from gym owners across Pakistan who use
+              HisabWala every day to manage members, payments, and growth.</p>
+          </div>
+          <div class="inline-flex items-center justify-center gap-4 rounded-full border border-white/10 bg-white/5 px-5 py-3 self-center lg:self-auto">
+            <div class="text-3xl font-black text-white">4.9/5</div>
+            <div>
+              <div class="flex gap-1 text-fitness-accent text-sm">★★★★★</div>
+              <p class="text-white/60 text-sm">Average rating from 500+ owners</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-[1.3fr_0.9fr] gap-6">
+          <div class="testimonial-feature rounded-[2rem] p-8 md:p-10">
+            <div class="flex items-center justify-between gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-xl">⭐</div>
+              <span class="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Featured Review</span>
+            </div>
+            <p class="text-white/90 text-lg md:text-xl leading-relaxed mb-8">“HisabWala نے میرے جم کی پوری اداریہ کو بدل دیا۔ میرا staff اب سب کچھ ایک ہی place سے دیکھ سکتا ہے، اور payments ka hisab بھی خود بخود ہو جاتا ہے.”</p>
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="testimonial-avatar w-12 h-12 rounded-full flex items-center justify-center font-black text-sm">AK</div>
+                <div>
+                  <div class="font-bold text-white">Ahmed Khan</div>
+                  <div class="text-white/50 text-sm">Owner, Power Gym — Lahore</div>
+                </div>
+              </div>
+              <div class="text-fitness-accent font-semibold text-sm">Trusted by growing gym businesses</div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="testimonial-card rounded-[1.5rem] p-6 transition-all duration-300" id="testimonial-1">
+              <div class="flex gap-1 mb-4 text-fitness-accent text-sm">★★★★★</div>
+              <p class="text-white/80 text-sm leading-relaxed mb-5">“The dashboard is so clean that my staff learned it in one day. Attendance and payments are now effortless.”</p>
+              <div class="flex items-center gap-3">
+                <div class="testimonial-avatar w-10 h-10 rounded-full flex items-center justify-center font-black text-sm">ZA</div>
+                <div>
+                  <div class="font-semibold text-white text-sm">Zubair Ahmed</div>
+                  <div class="text-white/40 text-xs">Owner, Zubair Fitness — Karachi</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card rounded-[1.5rem] p-6 transition-all duration-300" id="testimonial-2">
+              <div class="flex gap-1 mb-4 text-fitness-accent text-sm">★★★★★</div>
+              <p class="text-white/80 text-sm leading-relaxed mb-5">“Expense tracking alone saves me hours every month. I can see profit in real time without any confusion.”</p>
+              <div class="flex items-center gap-3">
+                <div class="testimonial-avatar w-10 h-10 rounded-full flex items-center justify-center font-black text-sm">SM</div>
+                <div>
+                  <div class="font-semibold text-white text-sm">Sajjad Malik</div>
+                  <div class="text-white/40 text-xs">Owner, Iron City Gym — Islamabad</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div class="testimonial-card rounded-[1.5rem] p-6 transition-all duration-300" id="testimonial-3">
+            <div class="flex gap-1 mb-4 text-fitness-accent text-sm">★★★★★</div>
+            <p class="text-white/80 text-sm leading-relaxed mb-5">“Pehle manual hisab lagana parta tha. Ab sab kuch automatic hai and my team is more organized.”</p>
+            <div class="flex items-center gap-3">
+              <div class="testimonial-avatar w-10 h-10 rounded-full flex items-center justify-center font-black text-sm">FH</div>
+              <div>
+                <div class="font-semibold text-white text-sm">Farhan Hussain</div>
+                <div class="text-white/40 text-xs">Owner, Champion Gym — Faisalabad</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card rounded-[1.5rem] p-6 transition-all duration-300" id="testimonial-4">
+            <div class="flex gap-1 mb-4 text-fitness-accent text-sm">★★★★☆</div>
+            <p class="text-white/80 text-sm leading-relaxed mb-5">“The reminder system is excellent. Members pay on time and my follow-up work has reduced significantly.”</p>
+            <div class="flex items-center gap-3">
+              <div class="testimonial-avatar w-10 h-10 rounded-full flex items-center justify-center font-black text-sm">UR</div>
+              <div>
+                <div class="font-semibold text-white text-sm">Usman Rafiq</div>
+                <div class="text-white/40 text-xs">Manager, Elite Fitness — Multan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-fitness-accent rounded-[1.5rem] p-6 flex flex-col justify-between min-h-[220px]" id="testimonial-cta-card">
+            <div>
+              <div class="text-4xl font-black text-fitness-dark mb-3">500+</div>
+              <h3 class="font-bold text-fitness-dark text-xl mb-2">Gym Owners Trust Us</h3>
+              <p class="text-fitness-dark/70 text-sm leading-relaxed">Join hundreds of successful owners across Pakistan who run their business smarter with HisabWala.</p>
+            </div>
+            <a href="#pricing-section" id="testimonials-cta"
+              class="mt-6 inline-flex items-center justify-center bg-fitness-dark text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 self-start">
+              Start Free Triall̥ō
+              <span class="btn-arrow hero-btn-arrow text-[10px]">↗</span>
+            </a>
+          </div>
+        </div>
       </div>
-
-      <!-- Testimonial Cards Grid -->
-      <div class="px-4 sm:px-6 md:px-10 max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Testimonial 1 -->
-        <div
-          class="testimonial-card bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-fitness-accent/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-1">
-          <div class="flex gap-1 mb-4">
-            <span class="text-fitness-accent text-lg">★★★★★</span>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-6">"HisabWala نے ہمارے جم کا نظام بدل دیا۔ پہلے رجسٹر میں
-            سب لکھتے تھے، اب سب کچھ آٹومیٹک ہے۔ بہت آسان اور تیز سافٹ ویئر ہے!"</p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 bg-fitness-accent rounded-full flex items-center justify-center font-black text-fitness-dark text-sm flex-shrink-0">
-              AK</div>
-            <div>
-              <div class="font-bold text-white text-sm">Ahmed Khan</div>
-              <div class="text-white/40 text-xs">Owner, Power Gym — Lahore</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div
-          class="testimonial-card bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-fitness-accent/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-2">
-          <div class="flex gap-1 mb-4">
-            <span class="text-fitness-accent text-lg">★★★★★</span>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-6">"Member payments track karna ab 2 seconds ka kaam hai.
-            SMS reminders automatically chale jate hain aur members bhi khush hain. Highly recommended!"</p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-black text-white text-sm flex-shrink-0">
-              ZA</div>
-            <div>
-              <div class="font-bold text-white text-sm">Zubair Ahmed</div>
-              <div class="text-white/40 text-xs">Owner, Zubair Fitness — Karachi</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div
-          class="testimonial-card bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-fitness-accent/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-3">
-          <div class="flex gap-1 mb-4">
-            <span class="text-fitness-accent text-lg">★★★★★</span>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-6">"Best investment for my gym! The expense tracking alone
-            saves me hours every month. I can see my real profit in real time. Simple UI, great support."</p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-black text-white text-sm flex-shrink-0">
-              SM</div>
-            <div>
-              <div class="font-bold text-white text-sm">Sajjad Malik</div>
-              <div class="text-white/40 text-xs">Owner, Iron City Gym — Islamabad</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 4 -->
-        <div
-          class="testimonial-card bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-fitness-accent/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-4">
-          <div class="flex gap-1 mb-4">
-            <span class="text-fitness-accent text-lg">★★★★★</span>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-6">"Pehle roz expenses ka hisab lagana parta tha manually.
-            Ab HisabWala sab kuch automatically calculate karta hai. Bahut time bachta hai!"</p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-black text-white text-sm flex-shrink-0">
-              FH</div>
-            <div>
-              <div class="font-bold text-white text-sm">Farhan Hussain</div>
-              <div class="text-white/40 text-xs">Owner, Champion Gym — Faisalabad</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 5 -->
-        <div
-          class="testimonial-card bg-white/5 border border-white/10 rounded-3xl p-7 hover:border-fitness-accent/40 hover:bg-white/8 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-5">
-          <div class="flex gap-1 mb-4">
-            <span class="text-fitness-accent text-lg">★★★★☆</span>
-          </div>
-          <p class="text-white/80 text-sm leading-relaxed mb-6">"Dashboard is very clean and easy to understand. My
-            staff learned it in one day. The attendance feature is especially useful for tracking daily members."</p>
-          <div class="flex items-center gap-3">
-            <div
-              class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-black text-white text-sm flex-shrink-0">
-              UR</div>
-            <div>
-              <div class="font-bold text-white text-sm">Usman Rafiq</div>
-              <div class="text-white/40 text-xs">Manager, Elite Fitness — Multan</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 6 — CTA Card -->
-        <div
-          class="bg-fitness-accent rounded-3xl p-7 flex flex-col justify-between hover:shadow-2xl hover:shadow-fitness-accent/30 transition-all duration-300 hover:-translate-y-1"
-          id="testimonial-cta-card">
-          <div>
-            <div class="text-4xl font-black text-fitness-dark mb-3">500+</div>
-            <h3 class="font-bold text-fitness-dark text-xl mb-2">Gym Owners Trust Us</h3>
-            <p class="text-fitness-dark/70 text-sm leading-relaxed">Join hundreds of successful gym owners across
-              Pakistan who run their business smarter with HisabWala.</p>
-          </div>
-          <a href="#pricing-section" id="testimonials-cta"
-            class="mt-6 inline-flex items-center justify-center bg-fitness-dark text-white font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 self-start">
-            Start Free Trial
-            <span class="btn-arrow hero-btn-arrow text-[10px]">↗</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
+    </section>l
     <!-- END: TestimonialsSection -->
 
     <!-- ============================================================ -->
@@ -1895,6 +2027,16 @@
   </div>
 
   <script>
+    // Header scroll behavior
+    const siteHeader = document.getElementById('site-header');
+    if (siteHeader) {
+      const updateHeaderState = () => {
+        siteHeader.classList.toggle('scrolled', window.scrollY > 20);
+      };
+      updateHeaderState();
+      window.addEventListener('scroll', updateHeaderState, { passive: true });
+    }
+
     // Mobile Navigation Drawer Toggle Logic
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
