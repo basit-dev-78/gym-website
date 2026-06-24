@@ -160,72 +160,93 @@
       </p>
 </div>
 
-<!-- Videos Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <!-- Card 1: Complete Overview -->
-  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('Complete overview', 'https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-in-gym-41712-large.mp4')" id="video-card-overview">
-    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">OVERVIEW</span>
-      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+<!-- Videos Slider -->
+<div class="relative mt-10 px-6" id="video-slider-wrapper">
+
+  <!-- Prev / Next Buttons -->
+  <button id="slider-prev" aria-label="Previous slide" class="absolute -left-4 md:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center hover:bg-fitness-accent hover:border-fitness-accent transition-colors duration-200 group">
+    <svg class="w-4 h-4 text-fitness-dark group-hover:text-fitness-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+  <button id="slider-next" aria-label="Next slide" class="absolute -right-4 md:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white rounded-full shadow-md border border-gray-100 flex items-center justify-center hover:bg-fitness-accent hover:border-fitness-accent transition-colors duration-200 group">
+    <svg class="w-4 h-4 text-fitness-dark group-hover:text-fitness-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Slider Track Viewport -->
+  <div class="overflow-hidden rounded-3xl" id="slider-viewport">
+    <div class="flex transition-transform duration-500 ease-in-out gap-6" id="slider-track" style="will-change: transform;">
+
+      <!-- Card 1: Complete Overview -->
+      <div class="flex-shrink-0 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('Complete overview', 'https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-in-gym-41712-large.mp4')" id="video-card-overview">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+          <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">OVERVIEW</span>
+          <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">4:15</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">Complete overview</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">A comprehensive walkthrough of the entire gym management software dashboard and core features.</p>
       </div>
-      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">4:15</span>
+
+      <!-- Card 2: How to add members -->
+      <div class="flex-shrink-0 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to add members', 'https://assets.mixkit.co/videos/preview/mixkit-gym-member-training-with-dumbbells-41708-large.mp4')" id="video-card-add-members">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+          <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">MEMBERS</span>
+          <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:30</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">How to add members</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">Learn how to easily register new gym members, assign plans, and setup their profiles.</p>
+      </div>
+
+      <!-- Card 3: Manage Payments -->
+      <div class="flex-shrink-0 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How we can manage members payments in this', 'https://assets.mixkit.co/videos/preview/mixkit-payment-terminal-close-up-41584-large.mp4')" id="video-card-payments">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+          <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">PAYMENTS</span>
+          <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">3:45</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">How we can manage members payments in this</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">A detailed guide on tracking subscription renewals, pending dues, and invoices.</p>
+      </div>
+
+      <!-- Card 4: Manage Expenses -->
+      <div class="flex-shrink-0 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to manage expense in this software', 'https://assets.mixkit.co/videos/preview/mixkit-writing-expenses-on-notebook-41578-large.mp4')" id="video-card-expenses">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+          <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">EXPENSES</span>
+          <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:15</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">How to manage expense in this software</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">Learn how to input daily overhead expenses, rent, salaries, and review monthly reports.</p>
+      </div>
+
+      <!-- Card 5: Problem Solving -->
+      <div class="flex-shrink-0 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('What problem solving this software for gym owners', 'https://assets.mixkit.co/videos/preview/mixkit-coach-discussing-plan-with-athlete-41710-large.mp4')" id="video-card-problem-solving">
+        <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
+          <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">SOLUTION</span>
+          <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+            <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">5:00</span>
+        </div>
+        <h3 class="font-bold text-lg mb-2">What problem solving this software for gym owners</h3>
+        <p class="text-xs text-gray-600 leading-relaxed">See how our software solves common issues like client churn, leakages, and manual bookkeeping.</p>
+      </div>
+
     </div>
-    <h3 class="font-bold text-lg mb-2">Complete overview</h3>
-    <p class="text-xs text-gray-600 leading-relaxed">A comprehensive walkthrough of the entire gym management software dashboard and core features.</p>
   </div>
 
-  <!-- Card 2: How to add members -->
-  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to add members', 'https://assets.mixkit.co/videos/preview/mixkit-gym-member-training-with-dumbbells-41708-large.mp4')" id="video-card-add-members">
-    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">MEMBERS</span>
-      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:30</span>
-    </div>
-    <h3 class="font-bold text-lg mb-2">How to add members</h3>
-    <p class="text-xs text-gray-600 leading-relaxed">Learn how to easily register new gym members, assign plans, and setup their profiles.</p>
-  </div>
+  <!-- Dot Indicators -->
+  <div class="flex justify-center gap-2 mt-8" id="slider-dots" role="tablist" aria-label="Video slider navigation"></div>
 
-  <!-- Card 3: How we can manage members payments in this -->
-  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How we can manage members payments in this', 'https://assets.mixkit.co/videos/preview/mixkit-payment-terminal-close-up-41584-large.mp4')" id="video-card-payments">
-    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">PAYMENTS</span>
-      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">3:45</span>
-    </div>
-    <h3 class="font-bold text-lg mb-2">How we can manage members payments in this</h3>
-    <p class="text-xs text-gray-600 leading-relaxed">A detailed guide on tracking subscription renewals, pending dues, and invoices.</p>
-  </div>
-
-  <!-- Card 4: How to manage expense in this software -->
-  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('How to manage expense in this software', 'https://assets.mixkit.co/videos/preview/mixkit-writing-expenses-on-a-notebook-41578-large.mp4')" id="video-card-expenses">
-    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">EXPENSES</span>
-      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:15</span>
-    </div>
-    <h3 class="font-bold text-lg mb-2">How to manage expense in this software</h3>
-    <p class="text-xs text-gray-600 leading-relaxed">Learn how to input daily overhead expenses, rent, salaries, and review monthly reports.</p>
-  </div>
-
-  <!-- Card 5: What problem solving this software for gym owners -->
-  <div class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col h-full hover:shadow-md transition-shadow group cursor-pointer" onclick="playVideo('What problem solving this software for gym owners', 'https://assets.mixkit.co/videos/preview/mixkit-coach-discussing-plan-with-athlete-41710-large.mp4')" id="video-card-problem-solving">
-    <div class="relative rounded-2xl overflow-hidden h-40 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-      <span class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">SOLUTION</span>
-      <div class="absolute bottom-3 right-3 w-8 h-8 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span class="absolute bottom-3 left-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">5:00</span>
-    </div>
-    <h3 class="font-bold text-lg mb-2">What problem solving this software for gym owners</h3>
-    <p class="text-xs text-gray-600 leading-relaxed">See how our software solves common issues like client churn, leakages, and manual bookkeeping.</p>
-  </div>
+</div>
 </div>
 </section>
 <!-- END: VideosSection -->
@@ -394,5 +415,139 @@
       closeVideo();
     }
   });
+  // =============================================
+  // Video Card Slider Logic
+  // =============================================
+  (function initVideoSlider() {
+    const track     = document.getElementById('slider-track');
+    const viewport  = document.getElementById('slider-viewport');
+    const wrapper   = document.getElementById('slider-slider-wrapper');
+    const prevBtn   = document.getElementById('slider-prev');
+    const nextBtn   = document.getElementById('slider-next');
+    const dotsContainer = document.getElementById('slider-dots');
+    if (!track || !viewport || !prevBtn || !nextBtn || !dotsContainer) return;
+
+    const cards       = Array.from(track.children);
+    const totalCards  = cards.length;
+    let currentIndex  = 0;
+    let autoTimer     = null;
+    const GAP         = 24; // px — matches gap-6 (1.5rem = 24px)
+    const AUTO_DELAY  = 2000; // ms
+
+    // --- Responsive: cards visible per viewport ---
+    function visibleCount() {
+      const w = viewport.offsetWidth;
+      if (w >= 1024) return 3;
+      if (w >= 640)  return 2;
+      return 1;
+    }
+
+    // --- Set card widths dynamically ---
+    function setCardWidths() {
+      const count    = visibleCount();
+      const vw       = viewport.offsetWidth;
+      const cardW    = (vw - GAP * (count - 1)) / count;
+      cards.forEach(c => {
+        c.style.width    = cardW + 'px';
+        c.style.minWidth = cardW + 'px';
+      });
+    }
+
+    // --- Max valid index ---
+    function maxIndex() {
+      return Math.max(0, totalCards - visibleCount());
+    }
+
+    // --- Translate to current index ---
+    function goTo(index) {
+      currentIndex = Math.max(0, Math.min(index, maxIndex()));
+      const cardW  = cards[0].offsetWidth;
+      const offset = currentIndex * (cardW + GAP);
+      track.style.transform = `translateX(-${offset}px)`;
+      updateDots();
+    }
+
+    // --- Build dot indicators ---
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      const max = maxIndex();
+      for (let i = 0; i <= max; i++) {
+        const dot = document.createElement('button');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        dot.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' +
+          (i === currentIndex
+            ? 'bg-fitness-dark scale-125'
+            : 'bg-gray-300 hover:bg-gray-400');
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('button');
+      dots.forEach((d, i) => {
+        d.className = 'w-2.5 h-2.5 rounded-full transition-all duration-300 ' +
+          (i === currentIndex
+            ? 'bg-fitness-dark scale-125'
+            : 'bg-gray-300 hover:bg-gray-400');
+      });
+    }
+
+    // --- Auto-advance ---
+    function startTimer() {
+      autoTimer = setInterval(() => {
+        const next = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
+        goTo(next);
+      }, AUTO_DELAY);
+    }
+
+    function stopTimer()  { clearInterval(autoTimer); }
+    function resetTimer() { stopTimer(); startTimer(); }
+
+    // --- Nav buttons ---
+    prevBtn.addEventListener('click', () => {
+      const prev = currentIndex <= 0 ? maxIndex() : currentIndex - 1;
+      goTo(prev); resetTimer();
+    });
+    nextBtn.addEventListener('click', () => {
+      const next = currentIndex >= maxIndex() ? 0 : currentIndex + 1;
+      goTo(next); resetTimer();
+    });
+
+    // --- Pause on hover ---
+    viewport.addEventListener('mouseenter', stopTimer);
+    viewport.addEventListener('mouseleave', startTimer);
+
+    // --- Touch / swipe support ---
+    let touchStartX = 0;
+    viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        diff > 0
+          ? goTo(currentIndex >= maxIndex() ? 0 : currentIndex + 1)
+          : goTo(currentIndex <= 0 ? maxIndex() : currentIndex - 1);
+        resetTimer();
+      }
+    }, { passive: true });
+
+    // --- Resize handler ---
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        setCardWidths();
+        buildDots();
+        goTo(Math.min(currentIndex, maxIndex()));
+      }, 150);
+    });
+
+    // --- Init ---
+    setCardWidths();
+    buildDots();
+    goTo(0);
+    startTimer();
+  })();
 </script>
 </body></html>
