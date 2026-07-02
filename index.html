@@ -655,11 +655,11 @@
     }
 
     #site-header.scrolled {
-      top: 0.75rem;
+      top: 0;
       border-color: rgba(10, 29, 26, 0.12);
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.88);
-      box-shadow: 0 12px 35px rgba(10, 29, 26, 0.10);
+      border-radius: 0;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       backdrop-filter: blur(16px);
     }
   </style>
@@ -673,7 +673,7 @@
       data-purpose="site-header">
       <!-- Logo -->
       
-        <img style="height: 50px;width: 150px;" src="assets/logo.jpeg" alt="Trainer logo" class="h-12 w-auto object-contain rounded-full bg-white/90 p-1 shadow-sm ring-1 ring-black/5" />
+        <img style="height: 50px;width: 150px;" src="assets/logo.jpeg" alt="Trainer logo" class="h-12 w-auto object-contain  " />
       
       <!-- Navigation -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
@@ -758,10 +758,7 @@
         data-purpose="hero-banner">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(193,241,58,0.16),_transparent_45%)]"></div>
         <div class="flex-1 px-6 py-12 sm:px-12 md:p-20 z-10">
-          <div class="inline-flex items-center gap-2 rounded-full fit-pill px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-fitness-accent mb-5">
-            <span class="h-2 w-2 rounded-full bg-fitness-accent"></span>
-            Trusted by 500+ Gym Owners
-          </div>
+          
           <p class="text-xl mb-4 font-medium text-fitness-accent uppercase tracking-wider">All-in-One Solution</p>
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
             Streamline Your <span class="text-fitness-accent italic">Gym</span> Business
@@ -783,18 +780,9 @@
             </a>
           </div>
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-md text-sm text-white/80">
-            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
-              <div class="font-bold text-white">Offline Ready</div>
-              <div class="text-xs text-white/60 mt-1">Works without internet</div>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
-              <div class="font-bold text-white">Auto Reports</div>
-              <div class="text-xs text-white/60 mt-1">Instant analytics</div>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/10 px-3 py-3">
-              <div class="font-bold text-white">24/7 Support</div>
-              <div class="text-xs text-white/60 mt-1">Fast assistance</div>
-            </div>
+            
+           
+          
           </div>
         </div>
         <div class="flex-1 flex justify-center md:justify-end items-center p-6 md:p-12 w-full z-10">
@@ -834,161 +822,10 @@
     <!-- END: HeroSection -->
 
     <!-- BEGIN: VideosSection -->
-    <section class="px-4 sm:px-6 md:px-10 py-16 md:py-24 max-w-[1440px] mx-auto" data-purpose="videos-section">
-      <div class="mb-12">
-        <span class="text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-3">Tutorials & Guides</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-fitness-dark leading-tight">
-          Master Your Gym Software
-        </h2>
-        <p class="text-gray-600 mt-2 max-w-xl text-sm sm:text-base">
-          Watch our step-by-step video tutorials to learn how to seamlessly manage members, track payments, control
-          expenses, and grow your gym business.
-        </p>
-      </div>
+    
 
       <!-- Videos Featured Grid -->
-      <div class="mt-10" id="videos-grid">
-
-        <!-- Row 1: Large featured card + 1 normal card -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-
-          <!-- Card 1: Complete Overview — FEATURED (spans 2 cols) -->
-          <div
-            class="md:col-span-2 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-lg transition-shadow group cursor-pointer"
-            onclick="playVideo('Complete overview', 'https://assets.mixkit.co/videos/preview/mixkit-man-holding-barbell-in-gym-41712-large.mp4')"
-            id="video-card-overview">
-            <div
-              class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4"
-              style="height:260px;">
-              <span
-                class="text-white/10 font-black text-6xl select-none tracking-tighter uppercase absolute">OVERVIEW</span>
-              <span
-                class="absolute top-3 left-3 bg-fitness-accent text-fitness-dark text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">Featured
-                Guide</span>
-              <div
-                class="w-14 h-14 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10 shadow-lg">
-                <svg class="w-7 h-7 fill-current ml-0.5" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span
-                class="absolute bottom-3 right-3 bg-fitness-dark/80 text-white text-xs font-semibold px-2.5 py-1 rounded-full">4:15</span>
-            </div>
-            <h3 class="font-bold text-xl mb-2">Complete overview</h3>
-            <p class="text-sm text-gray-500 leading-relaxed">A comprehensive walkthrough of the entire gym management
-              software dashboard and core features.</p>
-          </div>
-
-          <!-- Card 2: How to add members — normal -->
-          <div
-            class="md:col-span-1 bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-lg transition-shadow group cursor-pointer"
-            onclick="playVideo('How to add members', 'https://assets.mixkit.co/videos/preview/mixkit-gym-member-training-with-dumbbells-41708-large.mp4')"
-            id="video-card-add-members">
-            <div
-              class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4"
-              style="height:260px;">
-              <span
-                class="text-white/10 font-black text-4xl select-none tracking-tighter uppercase absolute">MEMBERS</span>
-              <span
-                class="absolute top-3 left-3 bg-white/10 text-white/70 text-[10px] font-semibold px-2 py-0.5 rounded-full">Tutorial</span>
-              <div
-                class="w-10 h-10 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10 shadow-lg">
-                <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span
-                class="absolute bottom-3 right-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:30</span>
-            </div>
-            <h3 class="font-bold text-base mb-1">How to add members</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Learn how to easily register new gym members, assign plans,
-              and setup their profiles.</p>
-          </div>
-
-        </div>
-
-        <!-- Row 2: 3 equal cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-
-          <!-- Card 3: Payments -->
-          <div
-            class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-lg transition-shadow group cursor-pointer"
-            onclick="playVideo('How we can manage members payments in this', 'https://assets.mixkit.co/videos/preview/mixkit-payment-terminal-close-up-41584-large.mp4')"
-            id="video-card-payments">
-            <div
-              class="relative rounded-2xl overflow-hidden h-44 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-              <span
-                class="text-white/10 font-black text-3xl select-none tracking-tighter uppercase absolute">PAYMENTS</span>
-              <span
-                class="absolute top-3 left-3 bg-white/10 text-white/70 text-[10px] font-semibold px-2 py-0.5 rounded-full">Payments</span>
-              <div
-                class="w-10 h-10 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10">
-                <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span
-                class="absolute bottom-3 right-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">3:45</span>
-            </div>
-            <h3 class="font-bold text-base mb-1">How we can manage members payments in this</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">A detailed guide on tracking subscription renewals, pending
-              dues, and invoices.</p>
-          </div>
-
-          <!-- Card 4: Expenses -->
-          <div
-            class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-lg transition-shadow group cursor-pointer"
-            onclick="playVideo('How to manage expense in this software', 'https://assets.mixkit.co/videos/preview/mixkit-writing-expenses-on-notebook-41578-large.mp4')"
-            id="video-card-expenses">
-            <div
-              class="relative rounded-2xl overflow-hidden h-44 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-              <span
-                class="text-white/10 font-black text-3xl select-none tracking-tighter uppercase absolute">EXPENSES</span>
-              <span
-                class="absolute top-3 left-3 bg-white/10 text-white/70 text-[10px] font-semibold px-2 py-0.5 rounded-full">Finance</span>
-              <div
-                class="w-10 h-10 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10">
-                <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span
-                class="absolute bottom-3 right-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">2:15</span>
-            </div>
-            <h3 class="font-bold text-base mb-1">How to manage expense in this software</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">Learn how to input daily overhead expenses, rent, salaries,
-              and review monthly reports.</p>
-          </div>
-
-          <!-- Card 5: Problem Solving -->
-          <div
-            class="bg-fitness-bg-card rounded-3xl p-6 flex flex-col hover:shadow-lg transition-shadow group cursor-pointer"
-            onclick="playVideo('What problem solving this software for gym owners', 'https://assets.mixkit.co/videos/preview/mixkit-coach-discussing-plan-with-athlete-41710-large.mp4')"
-            id="video-card-problem-solving">
-            <div
-              class="relative rounded-2xl overflow-hidden h-44 bg-gradient-to-br from-fitness-dark to-fitness-hero-bg flex items-center justify-center mb-4">
-              <span
-                class="text-white/10 font-black text-3xl select-none tracking-tighter uppercase absolute">SOLUTIONS</span>
-              <span
-                class="absolute top-3 left-3 bg-fitness-accent text-fitness-dark text-[10px] font-bold px-2 py-0.5 rounded-full">Value
-                Prop</span>
-              <div
-                class="w-10 h-10 bg-fitness-accent text-fitness-dark rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-10">
-                <svg class="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span
-                class="absolute bottom-3 right-3 bg-fitness-dark/80 text-white text-[10px] font-semibold px-2 py-1 rounded-full">5:00</span>
-            </div>
-            <h3 class="font-bold text-base mb-1">What problem solving this software for gym owners</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">See how our software solves common issues like client
-              churn, leakages, and manual bookkeeping.</p>
-          </div>
-
-        </div>
-
-      </div>
+      
 
       <!-- Auto Slider Strip -->
       <div class="mt-12 pt-10 border-t border-gray-100" id="video-slider-section">
@@ -1130,73 +967,7 @@
     </section>
     <!-- END: VideosSection -->
 
-    <!-- BEGIN: ScreenshotsSection -->
-    <section class="px-4 sm:px-6 md:px-10 pb-16 md:pb-20 max-w-[1440px] mx-auto" data-purpose="screenshots-gallery">
-      <div class="mb-10">
-        <span class="text-sm font-bold text-fitness-dark uppercase tracking-widest block mb-3">Software
-          Screenshots</span>
-        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-          <h2 class="text-3xl md:text-4xl font-bold text-fitness-dark leading-tight">
-            See It In Action
-          </h2>
-          <p class="text-gray-500 text-sm max-w-sm">Real screenshots from inside the gym management software dashboard.
-          </p>
-        </div>
-      </div>
-
-      <!-- Gallery Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="screenshots-gallery">
-
-        <!-- Screenshot 1 -->
-        <div
-          class="group relative rounded-3xl overflow-hidden bg-fitness-bg-card cursor-pointer hover:shadow-xl transition-all duration-300"
-          id="ss-card-1">
-          <div class="h-56 overflow-hidden relative">
-            <img src="assets/dashboard.jpeg" alt="Main Dashboard"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-fitness-dark mb-1">Main Dashboard</h3>
-            <p class="text-xs text-gray-500">Full overview of all gym metrics, revenue, and active members at a glance.
-            </p>
-          </div>
-        </div>
-
-        <!-- Screenshot 2 -->
-        <div
-          class="group relative rounded-3xl overflow-hidden bg-fitness-bg-card cursor-pointer hover:shadow-xl transition-all duration-300"
-          id="ss-card-2">
-          <div class="h-56 overflow-hidden relative">
-            <img src="assets/members-list.jpeg" alt="Members Management"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-fitness-dark mb-1">Members Management</h3>
-            <p class="text-xs text-gray-500">Manage all member profiles, statuses, plans, and contact details in one
-              place.</p>
-          </div>
-        </div>
-
-        <!-- Screenshot 3 -->
-        <div
-          class="group relative rounded-3xl overflow-hidden bg-fitness-bg-card cursor-pointer hover:shadow-xl transition-all duration-300"
-          id="ss-card-3">
-          <div class="h-56 overflow-hidden relative">
-            <img src="assets/mange expense.jpeg" alt="Expense Tracker"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-bold text-fitness-dark mb-1">Expense Tracker</h3>
-            <p class="text-xs text-gray-500">Log and categorize all gym expenses — rent, staff, utilities, and more.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- END: ScreenshotsSection -->
+   
 
     <!-- BEGIN: StatsSection -->
     <section class="bg-fitness-dark py-16 md:py-20" data-purpose="stats-banner">
